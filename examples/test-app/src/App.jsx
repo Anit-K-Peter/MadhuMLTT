@@ -10,8 +10,8 @@ export default function App() {
   return (
     <MLTTProvider
       font={{
-        family: 'ML-TTKarthika',
-        src: '/fonts/ML_TT_Karthika_Normal.ttf'
+        family: 'ML-KV-Naseema',
+        src: '/fonts/ML-KV-Naseema Black.ttf'
       }}
     >
       <div className="app-container">

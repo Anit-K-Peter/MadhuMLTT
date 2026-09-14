@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     madhuMLTTVite({
-      fontFamily: 'ML-TTKarthika',
+      fontFamily: 'ML-KV-Naseema',
       mapping: karthikaMapping,
       accessible: true
     })

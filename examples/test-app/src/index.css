@@ -1,6 +1,14 @@
 /* Global Styles & Font Face Registration for Madhu ML TT Real-World App */
 
 @font-face {
+  font-family: 'ML-KV-Naseema';
+  src: url('/fonts/ML-KV-Naseema Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'ML-TTKarthika';
   src: url('/fonts/ML_TT_Karthika_Normal.ttf') format('truetype');
   font-weight: normal;
