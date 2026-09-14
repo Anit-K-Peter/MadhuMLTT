@@ -7,7 +7,7 @@ export function Header() {
       <div className="site-wrapper header-inner">
         <div className="site-title-box">
           {/* Static JSX text transformed at build-time by Vite plugin */}
-          <h1 className="site-title">കേരള സാഹിത്യ വാതായനം</h1>
+          <h1 className="site-title">ദിവസം എങ്ങനെ പോകുന്നു?</h1>
           <p className="site-subtitle">മലയാള ഭാഷാ സാഹിത്യവും സംസ്കാരവും — Kerala Culture & Literature</p>
         </div>
 
