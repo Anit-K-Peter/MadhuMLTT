@@ -1,50 +1,43 @@
 /**
- * Madhu ML TT — Engine Test Suite
+ * Madhu ML TT — Comprehensive Test Runner
  */
 
-import { unicode2mltt, mltt2unicode, isMalayalam } from '../src/index.js';
+import { execSync } from 'child_process';
 
-const testCases = [
-  { unicode: 'നമസ്കാരം', expectedAscii: '\\akvImcw' },
-  { unicode: 'മലയാളം', expectedAscii: 'aebmfw' },
-  { unicode: 'കേരളം', expectedAscii: 'tIcfw' },
-  { unicode: 'സ്വതന്ത്രം', expectedAscii: 'kzX{´w' },
-  { unicode: 'ശ്രീ', expectedAscii: '{io' },
-  { unicode: 'പ്രവർത്തനം', expectedAscii: '{]hÀ¯\\w' },
-  { unicode: 'ഇന്ത്യ', expectedAscii: 'C´y' },
-  { unicode: 'ഭാഷ', expectedAscii: '`mj' },
-  { unicode: 'നന്ദി', expectedAscii: '\\µn' }
+const testFiles = [
+  'tests/unicode-to-mltt/vowels.test.js',
+  'tests/unicode-to-mltt/consonants.test.js',
+  'tests/unicode-to-mltt/matras.test.js',
+  'tests/unicode-to-mltt/conjuncts.test.js',
+  'tests/unicode-to-mltt/chillus.test.js',
+  'tests/unicode-to-mltt/mixed-content.test.js',
+  'tests/mltt-to-unicode/basic.test.js',
+  'tests/mltt-to-unicode/matras.test.js',
+  'tests/mltt-to-unicode/conjuncts.test.js',
+  'tests/mltt-to-unicode/chillus.test.js',
+  'tests/mltt-to-unicode/mixed-content.test.js',
+  'tests/roundtrip/roundtrip.test.js',
+  'tests/benchmark.js'
 ];
 
 console.log('====================================================');
-console.log('MADHU ML TT — ENGINE AUTOMATED TEST SUITE');
+console.log('MADHU ML TT — RUNNING ALL SUITES');
 console.log('====================================================');
 
-let passed = 0;
-let failed = 0;
+let totalPassed = 0;
 
-for (const { unicode, expectedAscii } of testCases) {
-  const asciiResult = unicode2mltt(unicode);
-  const revertedUnicode = mltt2unicode(asciiResult);
-
-  const forwardMatch = asciiResult === expectedAscii;
-  const reverseMatch = revertedUnicode === unicode;
-
-  if (forwardMatch && reverseMatch) {
-    passed++;
-    console.log(`[PASS] ${unicode} -> ${asciiResult} -> ${revertedUnicode}`);
-  } else {
-    failed++;
-    console.error(`[FAIL] Input: ${unicode}`);
-    console.error(`       Expected ASCII: ${expectedAscii} | Got: ${asciiResult}`);
-    console.error(`       Reverted: ${revertedUnicode}`);
+for (const file of testFiles) {
+  try {
+    const output = execSync(`node ${file}`, { encoding: 'utf8' });
+    console.log(output.trim());
+    totalPassed++;
+  } catch (err) {
+    console.error(`[ERROR IN TEST FILE ${file}]`);
+    console.error(err.stdout || err.message);
+    process.exit(1);
   }
 }
 
-console.log('----------------------------------------------------');
-console.log(`Results: ${passed} passed, ${failed} failed.`);
 console.log('====================================================');
-
-if (failed > 0) {
-  process.exit(1);
-}
+console.log(`ALL ${totalPassed} TEST SUITES COMPLETED SUCCESSFULLY!`);
+console.log('====================================================');

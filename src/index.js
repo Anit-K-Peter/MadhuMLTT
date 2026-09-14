@@ -1,26 +1,16 @@
 /**
- * Madhu ML TT — Primary API Interface
+ * Madhu ML TT — Engine Public API
  */
 
-import karthikaMap from './mappings/karthika.json' with { type: 'json' };
-import {
-  buildReverseMapping,
-  unicode2mlttEngine,
-  mltt2unicodeEngine
-} from './engine/reorder.js';
+import karthikaData from './mappings/ml-tt-karthika.json' with { type: 'json' };
 
-const { reverseMap, sortedKeys } = buildReverseMapping(karthikaMap.mapping);
+export {
+  unicodeToMLTT,
+  mlttToUnicode,
+  normalizeUnicode,
+  containsMalayalam,
+  tokenizeText,
+  buildReverseMapping
+} from './converter/index.js';
 
-export function unicode2mltt(text) {
-  return unicode2mlttEngine(text, karthikaMap.mapping);
-}
-
-export function mltt2unicode(text) {
-  return mltt2unicodeEngine(text, reverseMap, sortedKeys);
-}
-
-export function isMalayalam(text) {
-  return /[\u0D00-\u0D7F]/.test(text);
-}
-
-export const defaultMapping = karthikaMap;
+export const defaultMapping = karthikaData;
