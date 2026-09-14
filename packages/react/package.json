@@ -36,7 +36,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Anit-K-Peter/MadhuMLTT.git"
+    "url": "git+https://github.com/Anit-K-Peter/MadhuMLTT.git"
   },
   "bugs": {
     "url": "https://github.com/Anit-K-Peter/MadhuMLTT/issues"
