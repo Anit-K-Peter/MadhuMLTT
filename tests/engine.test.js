@@ -14,6 +14,9 @@ const testSuites = [
   // React Integration Suite
   'tests/react/react.test.js',
 
+  // Vite Integration Suite
+  'tests/vite/vite.test.js',
+
   // Conformance Suites
   'tests/conformance/unicode-to-mltt.test.js',
   'tests/conformance/mltt-to-unicode.test.js',
