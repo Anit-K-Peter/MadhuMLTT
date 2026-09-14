@@ -5,6 +5,12 @@
 import { execSync } from 'child_process';
 
 const testSuites = [
+  // Core SDK Factory & Integration Suites
+  'tests/core/factory.test.js',
+  'tests/core/immutability.test.js',
+  'tests/core/errors.test.js',
+  'tests/core/cache.test.js',
+
   // Conformance Suites
   'tests/conformance/unicode-to-mltt.test.js',
   'tests/conformance/mltt-to-unicode.test.js',
