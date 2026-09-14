@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "peerDependencies": {
-    "vite": "^4.0.0 || ^5.0.0 || ^6.0.0"
+    "vite": "^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
   },
   "dependencies": {
     "@madhu-mltt/core": "file:../../"

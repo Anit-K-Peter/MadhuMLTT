@@ -17,6 +17,9 @@ const testSuites = [
   // Vite Integration Suite
   'tests/vite/vite.test.js',
 
+  // Real-World Integration Suite
+  'tests/integration/realworld-integration.test.js',
+
   // Conformance Suites
   'tests/conformance/unicode-to-mltt.test.js',
   'tests/conformance/mltt-to-unicode.test.js',

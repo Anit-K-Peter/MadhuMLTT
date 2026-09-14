@@ -75,7 +75,7 @@ export function transformSource(code, filename, options) {
             )
           ]),
           t.jsxClosingElement(t.jsxIdentifier('span')),
-          [t.jsxText(convertedMLTT)],
+          [t.jsxExpressionContainer(t.stringLiteral(convertedMLTT))],
           false
         );
 
@@ -114,9 +114,9 @@ export function transformSource(code, filename, options) {
         path.skip();
         transformed = true;
       } else {
-        const newTextNode = t.jsxText(rawText.replace(trimmed, convertedMLTT));
-        newTextNode._madhuProcessed = true;
-        path.replaceWith(newTextNode);
+        const exprNode = t.jsxExpressionContainer(t.stringLiteral(convertedMLTT));
+        exprNode._madhuProcessed = true;
+        path.replaceWith(exprNode);
         path.skip();
         transformed = true;
       }

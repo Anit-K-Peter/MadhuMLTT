@@ -1,0 +1,242 @@
+/* Global Styles & Font Face Registration for Madhu ML TT Real-World App */
+
+@font-face {
+  font-family: 'ML-TTKarthika';
+  src: url('/fonts/ML_TT_Karthika_Normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-hover: #334155;
+  --color-border: #334155;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-accent: #991b1b;
+  --color-accent-light: #dc2626;
+  --color-highlight: #f59e0b;
+  --font-family-fallback: system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  font-family: var(--font-family-fallback);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.site-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header & Navigation */
+.header-banner {
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.5rem 0;
+  background-color: #020617;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-title-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  letter-spacing: -0.02em;
+}
+
+.site-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-text-main);
+}
+
+/* Main Content Grid */
+.main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+@media (max-width: 868px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card Component Layout */
+.content-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.card-heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text-main);
+  border-left: 4px solid var(--color-accent);
+  padding-left: 0.75rem;
+}
+
+.card-paragraph {
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  margin-bottom: 1.25rem;
+}
+
+.meta-badge {
+  display: inline-block;
+  background-color: rgba(153, 27, 27, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(153, 27, 27, 0.4);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Interactive Controls */
+.interactive-box {
+  background-color: #0f172a;
+  border: 1px solid var(--color-border);
+  padding: 1.25rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-light);
+}
+
+.input-field {
+  width: 100%;
+  background-color: #1e293b;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 0.65rem 0.9rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-field:focus {
+  outline: 2px solid var(--color-accent);
+}
+
+/* Sidebar Widgets */
+.sidebar-widget {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.widget-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.widget-list {
+  list-style: none;
+}
+
+.widget-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.widget-item:last-child {
+  border-bottom: none;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 2rem 0;
+  background-color: #020617;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Responsive Rules */
+@media (max-width: 640px) {
+  .site-title {
+    font-size: 1.75rem;
+  }
+  .card-heading {
+    font-size: 1.35rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+}
