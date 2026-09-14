@@ -1,4 +1,4 @@
-import { createConverter, validateMapping } from '../../../src/factory.js';
+import { createConverter, validateMapping } from '@madhu-mltt/core';
 import { transformSource } from './transform.js';
 
 /**

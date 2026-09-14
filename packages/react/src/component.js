@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { createConverter } from '../../../src/factory.js';
+import { createConverter } from '@madhu-mltt/core';
 import { useMLTT } from './hook.js';
 import { srOnlyStyle } from './styles.js';
 

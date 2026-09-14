@@ -6,10 +6,16 @@
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "exports": {
-    ".": "./src/index.js",
-    "./react": "./packages/react/src/index.js",
-    "./vite": "./packages/vite/src/index.js"
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
   },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "workspaces": [
     "packages/*"
   ],
@@ -27,6 +33,14 @@
   ],
   "author": "Anit K Peter",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Anit-K-Peter/MadhuMLTT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anit-K-Peter/MadhuMLTT/issues"
+  },
+  "homepage": "https://github.com/Anit-K-Peter/MadhuMLTT#readme",
   "devDependencies": {
     "@babel/generator": "^8.0.5",
     "@babel/parser": "^8.0.5",

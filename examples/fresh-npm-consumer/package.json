@@ -1,0 +1,22 @@
+{
+  "name": "fresh-npm-consumer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@madhu-mltt/core": "file:../../madhu-mltt-core-0.1.0.tgz",
+    "@madhu-mltt/react": "file:../../packages/react/madhu-mltt-react-0.1.0.tgz",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@madhu-mltt/vite": "file:../../packages/vite/madhu-mltt-vite-0.1.0.tgz",
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite": "^5.4.0"
+  }
+}

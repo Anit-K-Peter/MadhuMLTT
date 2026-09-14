@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect } from 'react';
-import { createConverter, validateMapping } from '../../../src/factory.js';
+import { createConverter, validateMapping } from '@madhu-mltt/core';
 import { MLTTContext } from './context.js';
 import { normalizeFont, registerFontFace } from './fontLoader.js';
 

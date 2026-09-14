@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react';
-import { createConverter } from '../../../src/factory.js';
+import { createConverter } from '@madhu-mltt/core';
 import { MLTTContext } from './context.js';
 
 // Lazy fallback converter singleton for standalone usage outside MLTTProvider

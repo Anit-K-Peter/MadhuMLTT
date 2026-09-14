@@ -5,12 +5,23 @@
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@madhu-mltt/core": "file:../../"
+    "@madhu-mltt/core": "^0.1.0"
   },
   "keywords": [
     "malayalam",
@@ -22,5 +33,13 @@
     "mltt"
   ],
   "author": "Anit K Peter",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Anit-K-Peter/MadhuMLTT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anit-K-Peter/MadhuMLTT/issues"
+  },
+  "homepage": "https://github.com/Anit-K-Peter/MadhuMLTT#readme"
 }
