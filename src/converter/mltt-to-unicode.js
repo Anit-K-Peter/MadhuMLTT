@@ -2,11 +2,11 @@
  * Madhu ML TT — Reverse Conversion Engine (ML-TT ASCII -> Unicode Malayalam)
  */
 
-import karthikaData from '../mappings/ml-tt-karthika.json' with { type: 'json' };
+import defaultMappingData from '../mapping.json' with { type: 'json' };
 import { normalizeUnicode } from './normalize.js';
 import { buildReverseMapping } from './reorder.js';
 
-const defaultReverseContext = buildReverseMapping(karthikaData.mapping);
+const defaultReverseContext = buildReverseMapping(defaultMappingData.mapping);
 
 /**
  * Check if a token is explicitly non-MLTT (e.g. English word, Email address, URL, Numbers)

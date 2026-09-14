@@ -2,7 +2,7 @@
  * Madhu ML TT — Forward Conversion Engine (Unicode Malayalam -> ML-TT ASCII)
  */
 
-import karthikaData from '../mappings/ml-tt-karthika.json' with { type: 'json' };
+import defaultMappingData from '../mapping.json' with { type: 'json' };
 import { normalizeUnicode } from './normalize.js';
 import { tokenizeText, TOKEN_TYPES } from './tokenizer.js';
 
@@ -17,7 +17,7 @@ import { tokenizeText, TOKEN_TYPES } from './tokenizer.js';
 export function unicodeToMLTT(text, options = {}) {
   if (!text) return '';
 
-  const mapping = options.mapping || karthikaData.mapping;
+  const mapping = options.mapping || defaultMappingData.mapping;
   const normalizedText = normalizeUnicode(text);
   const tokens = tokenizeText(normalizedText);
 

@@ -2,7 +2,7 @@
  * Madhu ML TT — Core SDK Factory & Converter Class
  */
 
-import karthikaData from './mappings/ml-tt-karthika.json' with { type: 'json' };
+import defaultMappingData from './mapping.json' with { type: 'json' };
 import { unicodeToMLTT } from './converter/unicode-to-mltt.js';
 import { mlttToUnicode } from './converter/mltt-to-unicode.js';
 import { normalizeUnicode, containsMalayalam } from './converter/normalize.js';
@@ -98,7 +98,7 @@ export class MLTTConverter {
    * @param {number} [options.cacheSize=1000] - LRU cache size
    */
   constructor(options = {}) {
-    const rawMapping = ('mapping' in options) ? options.mapping : karthikaData;
+    const rawMapping = ('mapping' in options) ? options.mapping : defaultMappingData;
     const validation = validateMapping(rawMapping);
 
     if (!validation.valid) {

@@ -2,7 +2,7 @@
  * Madhu ML TT — Core SDK Public API (@madhu-mltt/core)
  */
 
-import karthikaData from './mappings/ml-tt-karthika.json' with { type: 'json' };
+import defaultMappingData from './mapping.json' with { type: 'json' };
 
 export {
   createConverter,
@@ -19,5 +19,5 @@ export {
   buildReverseMapping
 } from './converter/index.js';
 
-export const karthikaMapping = karthikaData;
-export const defaultMapping = karthikaData;
+export const defaultMapping = defaultMappingData;
+export const karthikaMapping = defaultMappingData;

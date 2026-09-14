@@ -53,8 +53,7 @@ packages/core (root)
   │   │   ├── matra.js      # Matra reordering & positioning algorithms
   │   │   ├── chillu.js     # Chillu normalization & mapping handlers
   │   │   └── rules.js      # Canonical sequence matching engine
-  │   └── mappings/
-  │       └── karthika.json # Validated reference mapping specification
+  │   └── mapping.json      # Default reference mapping specification
   │
   ├── tests/                # Automated verification & regression test suite
   └── docs/                 # Public & technical documentation

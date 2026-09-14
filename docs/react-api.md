@@ -28,7 +28,6 @@ npm install @madhu-mltt/react @madhu-mltt/core
 ```jsx
 import React from 'react';
 import { MLTTProvider } from '@madhu-mltt/react';
-import karthikaMapping from './mappings/ml-tt-karthika.json';
 
 export default function App() {
   return (
@@ -37,7 +36,6 @@ export default function App() {
         family: 'ML-TTKarthika',
         src: '/fonts/ML_TT_Karthika_Normal.ttf'
       }}
-      mapping={karthikaMapping}
     >
       <Header />
       <MainContent />
