@@ -1,10 +1,15 @@
 /**
- * Madhu ML TT — Comprehensive Test Runner
+ * Madhu ML TT — Master Test Runner
  */
 
 import { execSync } from 'child_process';
 
-const testFiles = [
+const testSuites = [
+  // Conformance Suites
+  'tests/conformance/unicode-to-mltt.test.js',
+  'tests/conformance/mltt-to-unicode.test.js',
+
+  // Unit Test Suites
   'tests/unicode-to-mltt/vowels.test.js',
   'tests/unicode-to-mltt/consonants.test.js',
   'tests/unicode-to-mltt/matras.test.js',
@@ -16,28 +21,40 @@ const testFiles = [
   'tests/mltt-to-unicode/conjuncts.test.js',
   'tests/mltt-to-unicode/chillus.test.js',
   'tests/mltt-to-unicode/mixed-content.test.js',
+
+  // Edge Case Suites
+  'tests/edge-cases/malformed-input.test.js',
+  'tests/edge-cases/unknown-chars.test.js',
+  'tests/edge-cases/normalization.test.js',
+
+  // Regression Suite
+  'tests/regression/regression.test.js',
+
+  // Roundtrip Suite
   'tests/roundtrip/roundtrip.test.js',
-  'tests/benchmark.js'
+
+  // Performance Suite
+  'tests/performance/benchmark.test.js'
 ];
 
 console.log('====================================================');
-console.log('MADHU ML TT — RUNNING ALL SUITES');
+console.log('MADHU ML TT — MASTER TEST SUITE RUNNER');
 console.log('====================================================');
 
 let totalPassed = 0;
 
-for (const file of testFiles) {
+for (const suite of testSuites) {
   try {
-    const output = execSync(`node ${file}`, { encoding: 'utf8' });
+    const output = execSync(`node ${suite}`, { encoding: 'utf8' });
     console.log(output.trim());
     totalPassed++;
   } catch (err) {
-    console.error(`[ERROR IN TEST FILE ${file}]`);
+    console.error(`[ERROR IN TEST SUITE ${suite}]`);
     console.error(err.stdout || err.message);
     process.exit(1);
   }
 }
 
 console.log('====================================================');
-console.log(`ALL ${totalPassed} TEST SUITES COMPLETED SUCCESSFULLY!`);
+console.log(`ALL ${totalPassed} TEST SUITES PASSED CLEANLY!`);
 console.log('====================================================');
