@@ -11,6 +11,9 @@ const testSuites = [
   'tests/core/errors.test.js',
   'tests/core/cache.test.js',
 
+  // React Integration Suite
+  'tests/react/react.test.js',
+
   // Conformance Suites
   'tests/conformance/unicode-to-mltt.test.js',
   'tests/conformance/mltt-to-unicode.test.js',

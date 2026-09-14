@@ -1,0 +1,26 @@
+{
+  "name": "@madhu-mltt/react",
+  "version": "0.1.0",
+  "description": "React integration layer for Madhu ML TT Malayalam text technology engine",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@madhu-mltt/core": "0.1.0"
+  },
+  "keywords": [
+    "malayalam",
+    "ml-tt",
+    "react",
+    "karthika",
+    "font-encoding",
+    "unicode",
+    "mltt"
+  ],
+  "author": "Anit K Peter",
+  "license": "MIT"
+}

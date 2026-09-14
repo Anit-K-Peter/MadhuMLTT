@@ -30,7 +30,15 @@ export function validateMapping(mappingData) {
     return { valid: false, errors };
   }
 
-  const entries = Object.entries(mappingObj);
+  const entries = [];
+  for (const [k, v] of Object.entries(mappingObj)) {
+    if (typeof v === 'object' && v !== null && !Array.isArray(v)) {
+      entries.push(...Object.entries(v));
+    } else {
+      entries.push([k, v]);
+    }
+  }
+
   if (entries.length === 0) {
     errors.push('Mapping dictionary is empty.');
   }

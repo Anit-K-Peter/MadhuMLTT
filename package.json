@@ -5,6 +5,13 @@
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",
+  "exports": {
+    ".": "./src/index.js",
+    "./react": "./packages/react/src/index.js"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "node tests/engine.test.js"
   },
@@ -18,5 +25,9 @@
     "converter"
   ],
   "author": "Anit K Peter",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
 }
