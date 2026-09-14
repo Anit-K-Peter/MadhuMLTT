@@ -1,15 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { madhuMLTTVite } from '../../packages/vite/src/index.js';
+import { madhuMLTTVite } from '@madhu-mltt/vite';
+
 export default defineConfig({
   plugins: [
     react(),
     madhuMLTTVite({
-      fontFamily: 'ML-KV-Naseema',
+      fontFamily: 'ML-TTKarthika',
       accessible: true
     })
   ],
   server: {
-    port: 3000
+    port: 3001
   }
 });

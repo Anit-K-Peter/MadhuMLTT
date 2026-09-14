@@ -19,6 +19,7 @@ const testSuites = [
 
   // Real-World Integration Suite
   'tests/integration/realworld-integration.test.js',
+  'tests/integration/real-world-package-consumer.test.js',
 
   // Conformance Suites
   'tests/conformance/unicode-to-mltt.test.js',
