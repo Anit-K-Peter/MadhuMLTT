@@ -112,8 +112,8 @@ export class MLTTConverter {
 
     this.mapping = Object.freeze({ ...sourceDict });
     this.name = rawMapping.name || 'CustomMapping';
-    this.mode = options.mode || 'strict';
-    this.preserveEnglish = options.preserveEnglish ?? (this.mode === 'mixed');
+    this.mode = options.mode || 'mixed';
+    this.preserveEnglish = options.preserveEnglish ?? true;
     
     // Index reverse map for performance
     const context = buildReverseMapping(this.mapping);

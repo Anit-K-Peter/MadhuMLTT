@@ -42,6 +42,7 @@ const testSuites = [
   'tests/edge-cases/malformed-input.test.js',
   'tests/edge-cases/unknown-chars.test.js',
   'tests/edge-cases/normalization.test.js',
+  'tests/edge-cases/mixed-language.test.js',
 
   // Regression Suite
   'tests/regression/regression.test.js',

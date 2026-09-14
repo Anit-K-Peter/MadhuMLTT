@@ -16,7 +16,7 @@ for (const cat of categories) {
 
   for (const [mlttInput, expectedUnicode] of Object.entries(fixtureGroup)) {
     const isMixedCase = cat === 'mixed' && (mlttInput.includes('Email') || mlttInput.includes('Delhi'));
-    const actualUnicode = mlttToUnicode(mlttInput, isMixedCase ? { preserveEnglish: true } : {});
+    const actualUnicode = mlttToUnicode(mlttInput, isMixedCase ? { preserveEnglish: true } : { mode: 'strict', preserveEnglish: false });
 
     if (actualUnicode === expectedUnicode) {
       passed++;
