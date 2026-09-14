@@ -1,0 +1,20 @@
+{
+  "name": "madhu-mltt",
+  "version": "0.1.0",
+  "description": "Developer-focused Malayalam ML-TT text engine and conversion specification",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node tests/engine.test.js"
+  },
+  "keywords": [
+    "malayalam",
+    "ml-tt",
+    "karthika",
+    "font-encoding",
+    "unicode",
+    "text-technology"
+  ],
+  "author": "Anit K Peter",
+  "license": "MIT"
+}
