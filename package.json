@@ -1,6 +1,6 @@
 {
   "name": "@madhu-mltt/core",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Developer-focused, framework-independent Malayalam ML-TT text engine and conversion core",
   "type": "module",
   "main": "src/index.js",
@@ -13,6 +13,7 @@
   },
   "files": [
     "src",
+    "mappings",
     "README.md",
     "LICENSE"
   ],

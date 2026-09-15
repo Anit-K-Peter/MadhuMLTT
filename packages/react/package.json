@@ -1,6 +1,6 @@
 {
   "name": "@madhu-mltt/react",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "React integration layer for Madhu ML TT Malayalam text technology engine",
   "type": "module",
   "main": "src/index.js",
@@ -25,7 +25,7 @@
     "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@madhu-mltt/core": "^0.1.2"
+    "@madhu-mltt/core": "^0.1.3"
   },
   "keywords": [
     "malayalam",
