@@ -48,4 +48,5 @@ export declare function normalizeUnicode(text: string): string;
 export declare function containsMalayalam(text: string): boolean;
 
 export declare const karthikaMapping: MappingSchema;
+export declare const revathiMapping: MappingSchema;
 export declare const defaultMapping: MappingSchema;

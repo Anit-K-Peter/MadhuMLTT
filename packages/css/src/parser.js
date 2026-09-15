@@ -4,7 +4,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { defaultMapping, validateMapping } from '@madhu-mltt/core';
+import { defaultMapping, revathiMapping, validateMapping } from '@madhu-mltt/core';
 
 /**
  * Removes leading and trailing quotes (single or double) from a string.
@@ -120,10 +120,14 @@ export function parseFontMLTT(cssCode, options = {}) {
     if (mappingRaw.toLowerCase().startsWith('url(') || mappingValue.endsWith('.json') || mappingValue.includes('/') || mappingValue.includes('\\')) {
       mappingType = 'file';
       mappingValue = extractUrlValue(mappingRaw);
-    } else if (mappingValue.toLowerCase() === 'karthika' || mappingValue.toLowerCase() === 'default') {
+    } else if (mappingValue.toLowerCase() === 'karthika' || mappingValue.toLowerCase() === 'default' || mappingValue.toLowerCase() === 'ml-ttkarthika') {
       mappingType = 'builtin';
       mappingValue = 'Karthika';
       resolvedMapping = defaultMapping;
+    } else if (mappingValue.toLowerCase() === 'revathi' || mappingValue.toLowerCase() === 'ml-ttrevathi') {
+      mappingType = 'builtin';
+      mappingValue = 'ML-TTRevathi';
+      resolvedMapping = revathiMapping;
     }
 
     // If file-based mapping and resolveJson is true, load & validate mapping

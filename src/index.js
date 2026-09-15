@@ -3,6 +3,7 @@
  */
 
 import defaultMappingData from './mapping.json' with { type: 'json' };
+import revathiMappingData from '../mappings/revathi/mapping.json' with { type: 'json' };
 
 export {
   createConverter,
@@ -21,3 +22,4 @@ export {
 
 export const defaultMapping = defaultMappingData;
 export const karthikaMapping = defaultMappingData;
+export const revathiMapping = revathiMappingData;

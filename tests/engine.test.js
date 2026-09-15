@@ -20,6 +20,7 @@ const testSuites = [
   'tests/vite-zero-syntax.test.js',
   'tests/css.test.js',
   'tests/vite-css-integration.test.js',
+  'tests/revathi.test.js',
 
   // Real-World Integration Suite
   'tests/integration/realworld-integration.test.js',
