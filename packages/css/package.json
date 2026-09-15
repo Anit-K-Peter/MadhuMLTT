@@ -1,7 +1,7 @@
 {
-  "name": "@madhu-mltt/vite",
-  "version": "0.1.5",
-  "description": "Vite build-time transformation plugin for Madhu ML TT Malayalam text technology engine",
+  "name": "@madhu-mltt/css",
+  "version": "0.1.0",
+  "description": "CSS parser and @font-mltt transformer for Madhu ML TT Malayalam font encodings",
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -16,25 +16,16 @@
     "README.md",
     "LICENSE"
   ],
-  "peerDependencies": {
-    "vite": "^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
-  },
   "dependencies": {
-    "@babel/generator": "^8.0.5",
-    "@babel/parser": "^8.0.5",
-    "@babel/traverse": "^8.0.5",
-    "@babel/types": "^8.0.5",
-    "@madhu-mltt/core": "^0.1.2",
-    "@madhu-mltt/css": "^0.1.0"
+    "@madhu-mltt/core": "^0.1.2"
   },
   "keywords": [
     "malayalam",
     "ml-tt",
-    "vite",
-    "vite-plugin",
+    "css",
+    "font-mltt",
     "font-encoding",
-    "unicode",
-    "mltt"
+    "unicode"
   ],
   "author": "Anit K Peter",
   "license": "MIT",
