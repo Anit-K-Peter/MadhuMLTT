@@ -1,6 +1,6 @@
 {
   "name": "@madhu-mltt/react",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "React integration layer for Madhu ML TT Malayalam text technology engine",
   "type": "module",
   "main": "src/index.js",
@@ -9,6 +9,10 @@
     ".": {
       "types": "./src/index.d.ts",
       "default": "./src/index.js"
+    },
+    "./runtime": {
+      "types": "./src/runtime.d.ts",
+      "default": "./src/runtime.js"
     }
   },
   "files": [

@@ -1,6 +1,6 @@
 {
   "name": "@madhu-mltt/vite",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Vite build-time transformation plugin for Madhu ML TT Malayalam text technology engine",
   "type": "module",
   "main": "src/index.js",

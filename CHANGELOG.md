@@ -5,6 +5,20 @@ All notable changes to the Madhu ML TT project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2026-09-15
+
+### Added
+
+- **Zero-Syntax Developer Experience**:
+  - Developers can write standard React JSX containing Malayalam text without using `<MLText>`, `<MLTTProvider>`, `useMLTT`, or manual conversion calls.
+  - `@madhu-mltt/vite` (v0.1.4) automatically converts static Malayalam `JSXText` nodes into clean, un-wrapped ML-TT text nodes at build-time.
+  - `@madhu-mltt/vite` automatically wraps dynamic JSX child expressions (`<p>{title}</p>`, `<p>{items.map(...)}</p>`) with type-safe `__madhuConvert()` helper calls.
+  - `@madhu-mltt/react` (v0.1.3) exports official public subpath `@madhu-mltt/react/runtime` containing `__madhuConvert()`.
+- **Clean Unwrapped DOM Output**: Default transformation outputs clean, native HTML nodes without generating extra `<span>` elements.
+- **Strict Attribute & JS Isolation**: Preserves native Malayalam Unicode in HTML attributes (`alt`, `title`, `placeholder`, `aria-label`, `key`, `className`) and non-JSX JavaScript code.
+- **Opt-Out Support**: Supports `data-mltt-ignore` attribute to skip transformation on specific JSX elements.
+- **New Test Suites**: Added `react-runtime.test.js`, `vite-zero-syntax.test.js`, and `zero-syntax-integration.test.js` bringing master suite count to 31 passed test suites.
+
 ---
 
 ## [0.1.2] - 2026-09-15

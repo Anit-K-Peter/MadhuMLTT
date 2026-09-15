@@ -13,13 +13,16 @@ const testSuites = [
 
   // React Integration Suite
   'tests/react/react.test.js',
+  'tests/react-runtime.test.js',
 
   // Vite Integration Suite
   'tests/vite/vite.test.js',
+  'tests/vite-zero-syntax.test.js',
 
   // Real-World Integration Suite
   'tests/integration/realworld-integration.test.js',
   'tests/integration/real-world-package-consumer.test.js',
+  'tests/zero-syntax-integration.test.js',
 
   // Conformance Suites
   'tests/conformance/unicode-to-mltt.test.js',

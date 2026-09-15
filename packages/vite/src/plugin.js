@@ -18,7 +18,7 @@ export function madhuMLTTVite(options = {}) {
     fontFamily = 'ML-TTKarthika',
     include = /\.(jsx|tsx|js|ts)$/,
     exclude = /node_modules|\.git|dist/,
-    accessible = true
+    accessible = false
   } = options;
 
   // Validate mapping once during plugin initialization
