@@ -77,6 +77,18 @@ if (cachedMs <= initialMs) {
   console.error(`[FAIL] LRU Cache failed to accelerate repeat conversion.`);
 }
 
+// Test 7: Programmatic Mapping Registry
+import { supportedMappings, getMapping } from '../../src/index.js';
+const karthikaResolved = getMapping('Karthika');
+const revathiResolved = getMapping('Revathi');
+if (karthikaResolved && revathiResolved && Object.keys(supportedMappings).length >= 4) {
+  passed++;
+  console.log('[PASS] getMapping() and supportedMappings registry resolve built-in font mappings accurately.');
+} else {
+  failed++;
+  console.error('[FAIL] Mapping registry resolution failed.');
+}
+
 console.log('----------------------------------------------------');
 console.log(`Core SDK Factory Tests: ${passed} passed, ${failed} failed.`);
 console.log('====================================================');

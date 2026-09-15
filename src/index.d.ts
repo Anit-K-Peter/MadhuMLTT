@@ -50,3 +50,6 @@ export declare function containsMalayalam(text: string): boolean;
 export declare const karthikaMapping: MappingSchema;
 export declare const revathiMapping: MappingSchema;
 export declare const defaultMapping: MappingSchema;
+
+export declare const supportedMappings: Record<string, MappingSchema>;
+export declare function getMapping(name: string): MappingSchema | null;

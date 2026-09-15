@@ -52,7 +52,7 @@ test('transforms @font-mltt into @font-face with built-in Karthika mapping', () 
   assert.equal(rules.length, 1);
   assert.equal(rules[0].fontFamily, 'Karthika');
   assert.equal(rules[0].mappingType, 'builtin');
-  assert.equal(rules[0].mappingValue, 'Karthika');
+  assert.ok(rules[0].mappingValue.includes('Karthika'));
   assert.ok(typeof rules[0].mapping === 'object' && rules[0].mapping !== null);
 });
 

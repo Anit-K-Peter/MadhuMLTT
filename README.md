@@ -19,6 +19,16 @@
 
 ---
 
+## Supported Mappings & Registry
+
+Madhu ML TT officially supports verified legacy font mappings out of the box:
+- **`ML-TTKarthika`** (built-in global default)
+- **`ML-TTRevathi`** (ISFOC Revathi standard)
+
+For the complete mapping registry, licensing details, and CSS `@font-mltt` syntax guide, see [MAPPINGS.md](file:///mnt/WorkStation/Main%20Project/MadhuMLTT/MAPPINGS.md).
+
+---
+
 ## Installation
 
 ```bash
