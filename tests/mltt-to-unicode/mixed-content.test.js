@@ -11,7 +11,7 @@ const strictTests = [
 ];
 
 for (const { ascii, expected } of strictTests) {
-  const result = mlttToUnicode(ascii);
+  const result = mlttToUnicode(ascii, { mode: 'strict', preserveEnglish: false });
   if (result === expected) {
     passed++;
   } else {

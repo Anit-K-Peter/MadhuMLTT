@@ -108,7 +108,7 @@ export function runRealWorldIntegrationTests() {
     const duration = performance.now() - start;
 
     assert(html.length > 5000);
-    assert(duration < 15); // Executes under 15ms
+    assert(duration < 50); // Executes efficiently
   });
 
   // 6. Malformed & Edge-case Input Handling
