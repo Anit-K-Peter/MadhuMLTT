@@ -1,77 +1,111 @@
-# Madhu ML TT — Core Malayalam Text Engine
+# @madhu-mltt/core
 
-[![Phase 1 Status](https://img.shields.io/badge/Phase_1-Complete-success.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)]()
+[![npm version](https://img.shields.io/npm/v/@madhu-mltt/core.svg)](https://www.npmjs.com/package/@madhu-mltt/core)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-**Madhu ML TT** is a high-performance, developer-focused Malayalam text engine designed for bidirectional conversion between modern **Unicode Malayalam** and legacy **ML-TT** (Malayalam TrueType) font encodings.
-
----
-
-## Capabilities & Features
-
-- **Bidirectional Conversion**: Accurate `Unicode -> ML-TT` and `ML-TT -> Unicode` transformation.
-- **Sequence-Aware Matra Reordering**: Handles pre-base matras (`െ`, `േ`, `ൈ`, `്ര`) and split matras (`ൊ`, `ോ`, `ൌ`).
-- **Atomic Chillu Standardization**: Full support for both atomic Unicode chillus (`U+0D7K`–`U+0D7F`) and legacy virama-based sequences (`ന+്+ZWJ`).
-- **Mixed Content Preservation**: Retains English words, numbers, emails, URLs, punctuation (`.,!?;:()[]{}'"-/_`), and whitespace.
-- **Data-Driven Architecture**: Decoupled engine algorithms and font mapping data (`ML-TTKarthika` C-DIT / GIST standard).
-- **Framework Independent**: Pure ES Module with zero runtime dependencies. Runs in Node.js, browsers, or web workers.
+**@madhu-mltt/core** is a high-performance, framework-independent Malayalam text engine designed for bidirectional conversion between modern **Unicode Malayalam** and legacy **ML-TT** (Malayalam TrueType) font encodings.
 
 ---
 
-## Installation & Basic Usage
+## Key Features
 
-```javascript
-import { unicodeToMLTT, mlttToUnicode } from './src/index.js';
+- **Bidirectional Conversion**: High-accuracy `Unicode -> ML-TT` and `ML-TT -> Unicode` transformations.
+- **Embedded Karthika Mapping**: Uses the standard `ML-TTKarthika` font mapping as the built-in global default.
+- **Mixed-Language Preservation**: Preserves English words, numbers, technical terms, URLs, email addresses, and punctuation inside Malayalam text.
+- **Matra Reordering Engine**: Handles pre-base matras (`െ`, `േ`, `ൈ`, `്ര`) and split matras (`ൊ`, `ോ`, `ൌ`).
+- **Chillu Standardization**: Supports both atomic Unicode chillus (`U+0D7K`–`U+0D7F`) and legacy virama-based sequences (`ന+്+ZWJ`).
+- **LRU Caching**: Built-in LRU cache for string conversions ensuring sub-millisecond throughput.
+- **Zero Runtime Dependencies**: Pure ES Module compatible with Node.js, modern browsers, Next.js, Vite, and Web Workers.
 
-// 1. Unicode to ML-TT Conversion
-const mltt = unicodeToMLTT('കേരളം');
-console.log(mltt); // Output: "tIcfw"
+---
 
-// 2. ML-TT to Unicode Conversion
-const unicode = mlttToUnicode('tIcfw');
-console.log(unicode); // Output: "കേരളം"
+## Installation
 
-// 3. Mixed Text Conversion with English Preservation
-const mixedMltt = unicodeToMLTT('Hello കേരളം 2026!');
-console.log(mixedMltt); // Output: "Hello tIcfw 2026!"
-
-const restoredUnicode = mlttToUnicode(mixedMltt, { preserveEnglish: true });
-console.log(restoredUnicode); // Output: "Hello കേരളം 2026!"
+```bash
+npm install @madhu-mltt/core
 ```
 
 ---
 
-## Verification & Test Suite
+## Quick Start
 
-Run the master test runner containing 19 test suites:
+```javascript
+import { createConverter, defaultMapping } from '@madhu-mltt/core';
+
+// 1. Initialize converter with default Karthika mapping
+const converter = createConverter(defaultMapping);
+
+// 2. Convert Unicode Malayalam to ML-TT ASCII
+const mltt = converter.toMLTT('കേരളം');
+console.log(mltt); // "tIcfw"
+
+// 3. Convert ML-TT ASCII back to Unicode Malayalam
+const unicode = converter.toUnicode('tIcfw');
+console.log(unicode); // "കേരളം"
+
+// 4. Mixed Language Text Preservation
+const mixedText = 'കേരളം (Kerala) is a state in South India.';
+const convertedMixed = converter.toMLTT(mixedText);
+console.log(convertedMixed); // "tIcfw (Kerala) is a state in South India."
+```
+
+---
+
+## API Reference
+
+### `createConverter(mapping?, options?)`
+
+Factory function that creates a new `MLTTConverter` instance.
+
+- **`mapping`** *(object, optional)*: Font mapping object. Defaults to built-in `defaultMapping` (Karthika).
+- **`options`** *(object, optional)*:
+  - **`mode`** *('mixed' | 'strict')*: Reverse conversion mode. Default: `'mixed'`.
+  - **`preserveEnglish`** *(boolean)*: English preservation flag. Default: `true`.
+  - **`cacheSize`** *(number)*: Maximum entries for LRU conversion cache. Default: `1000`.
+
+### Converter Instance Methods
+
+#### `converter.toMLTT(unicodeText)`
+Converts a Malayalam Unicode string into an ML-TT font encoded ASCII string.
+
+- **`unicodeText`** *(string)*: Malayalam Unicode text.
+- **Returns**: *(string)* ML-TT ASCII string.
+
+#### `converter.toUnicode(mlttText, overrideOptions?)`
+Converts an ML-TT ASCII string back into modern Malayalam Unicode text.
+
+- **`mlttText`** *(string)*: ML-TT ASCII text.
+- **`overrideOptions`** *(object, optional)*: Override instance default options for this invocation.
+- **Returns**: *(string)* Malayalam Unicode text.
+
+---
+
+## Advanced Usage
+
+### Using Custom Mappings
+
+You can supply custom font mapping dictionaries to `createConverter()`:
+
+```javascript
+import { createConverter } from '@madhu-mltt/core';
+import customMappingData from './my-custom-mapping.json' with { type: 'json' };
+
+const customConverter = createConverter(customMappingData);
+const result = customConverter.toMLTT('മലയാളം');
+```
+
+---
+
+## Testing
+
+Run the complete test suite:
 
 ```bash
 npm test
 ```
 
-### Included Test Categories
-
-```text
-tests/
-├── conformance/      # Fixed reference fixture tests for both directions
-├── unicode-to-mltt/  # Vowels, consonants, matras, conjuncts, chillus, mixed
-├── mltt-to-unicode/  # Basic, matras, conjuncts, chillus, mixed
-├── edge-cases/       # Malformed input, unknown chars, normalization matrix
-├── regression/       # Bug fix regression protection
-├── roundtrip/        # 100% roundtrip fidelity suite (50 assertions)
-├── performance/      # Throughput benchmarks (100 B to 1 MB)
-└── font-verification.py # fontTools glyph correspondence verification
-```
-
----
-
-## Current Scope & Future Roadmap
-
-* **Phase 1 (Complete)**: Technical specification, font audit, reordering engine, test suite, and core release readiness.
-* **Phase 2 (Planned)**: Developer SDK (`@madhu-mltt/core`), React components, and Vite plugin integration.
-
 ---
 
 ## License
 
-MIT License.
+MIT License © Anit K Peter
