@@ -21,6 +21,7 @@ const testSuites = [
   'tests/css.test.js',
   'tests/vite-css-integration.test.js',
   'tests/revathi.test.js',
+  'tests/font-mltt-resolution.test.js',
 
   // Real-World Integration Suite
   'tests/integration/realworld-integration.test.js',

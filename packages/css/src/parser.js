@@ -76,7 +76,7 @@ export function parseFontMLTT(cssCode, options = {}) {
   const { filename, resolveJson = true } = options;
   const rules = [];
 
-  // Regex to match `@font-mltt { ... }` blocks (handling nested braces safely if any)
+  // Regex to match `@font-mltt { ... }` blocks
   const atRuleRegex = /@font-mltt\s*\{([^}]*)\}/gi;
 
   const transformedCss = cssCode.replace(atRuleRegex, (fullMatch, blockContent) => {
@@ -112,25 +112,33 @@ export function parseFontMLTT(cssCode, options = {}) {
       fontFamily = 'ML-TTKarthika';
     }
 
-    // Resolve mapping metadata
+    // Resolve mapping metadata with Karthika default fallback
+    let isExplicitMapping = false;
     let mappingType = 'builtin';
-    let mappingValue = mappingRaw ? unquote(mappingRaw) : 'Karthika';
-    let resolvedMapping = null;
+    let mappingValue = 'Karthika';
+    let resolvedMapping = defaultMapping;
 
-    if (mappingRaw.toLowerCase().startsWith('url(') || mappingValue.endsWith('.json') || mappingValue.includes('/') || mappingValue.includes('\\')) {
-      mappingType = 'file';
-      mappingValue = extractUrlValue(mappingRaw);
-    } else {
-      const builtin = getMapping(mappingValue);
-      if (builtin) {
-        mappingType = 'builtin';
-        mappingValue = builtin.name || mappingValue;
-        resolvedMapping = builtin;
+    if (mappingRaw) {
+      isExplicitMapping = true;
+      const unquotedVal = unquote(mappingRaw);
+
+      if (mappingRaw.toLowerCase().startsWith('url(') || unquotedVal.endsWith('.json') || unquotedVal.includes('/') || unquotedVal.includes('\\')) {
+        mappingType = 'file';
+        mappingValue = extractUrlValue(mappingRaw);
+      } else {
+        const builtin = getMapping(unquotedVal);
+        if (builtin) {
+          mappingType = 'builtin';
+          mappingValue = builtin.name || unquotedVal;
+          resolvedMapping = builtin;
+        } else {
+          mappingValue = unquotedVal;
+        }
       }
     }
 
     // If file-based mapping and resolveJson is true, load & validate mapping
-    if (mappingType === 'file' && resolveJson && filename) {
+    if (isExplicitMapping && mappingType === 'file' && resolveJson && filename) {
       try {
         const cssDir = path.dirname(filename);
         const resolvedJsonPath = path.resolve(cssDir, mappingValue);
@@ -150,14 +158,13 @@ export function parseFontMLTT(cssCode, options = {}) {
       } catch (err) {
         console.warn(`[@madhu-mltt/css]: Failed to parse JSON mapping file ${mappingValue}:`, err.message);
       }
-    } else if (mappingType === 'builtin' && !resolvedMapping) {
-      resolvedMapping = defaultMapping;
     }
 
     const ruleObj = {
       fontFamily,
       fontFamilyRaw,
       mappingRaw,
+      isExplicitMapping,
       mappingType,
       mappingValue,
       mapping: resolvedMapping || defaultMapping,
@@ -167,7 +174,7 @@ export function parseFontMLTT(cssCode, options = {}) {
 
     rules.push(ruleObj);
 
-    // Transform `@font-mltt` to `@font-face`
+    // Transform `@font-mltt` to standard `@font-face`
     return `@font-face {\n${descriptors.join('\n')}\n}`;
   });
 
